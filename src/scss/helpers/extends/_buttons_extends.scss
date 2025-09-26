@@ -1,0 +1,39 @@
+@use '../variables' as *;
+@mixin st_btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	white-space: nowrap;
+
+	cursor: pointer;
+	text-decoration: none;
+}
+
+//color extends
+%accent_btn_1 {
+	@include st_btn;
+
+	font-weight: 700;
+	color: $color-btn-main-text;
+	background-color: $color-btn-main-start;
+	transition: 0.3s ease;
+}
+
+//size extends
+%btn_size_1 {
+	min-width: 23.2rem;
+	height: 5.4rem;
+	padding: 0 2rem;
+	line-height: 5.4rem;
+	font-size: 1.6rem;
+	border-radius: 1.5rem;
+	text-transform: uppercase;
+}
+
+.btn_hero {
+	@extend %accent_btn_1;
+	@extend %btn_size_1;
+	margin-bottom: 5rem;
+}

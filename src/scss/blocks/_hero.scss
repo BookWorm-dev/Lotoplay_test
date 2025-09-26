@@ -1,0 +1,28 @@
+@use './helpers/abstracts' as *;
+
+.hero-title {
+	padding-top: 10rem;
+	padding-bottom: 3rem;
+	font-weight: 700;
+	font-size: 4.6rem;
+	line-height: 5rem;
+	color: $color-text-primary;
+}
+
+.hero-subtitle {
+	font-size: 1.6rem;
+	line-height: 2.5rem;
+
+	&__text {
+		color: $color-text-primary;
+		padding-bottom: 1.5rem;
+		&:last-child {
+			padding-bottom: 3rem;
+		}
+	}
+
+	.word-accent {
+		color: $color-blue;
+		font-weight: 700;
+	}
+}
