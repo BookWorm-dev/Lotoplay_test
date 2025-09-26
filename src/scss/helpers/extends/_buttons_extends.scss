@@ -12,12 +12,21 @@
 }
 
 //color extends
-%accent_btn_1 {
+%yellow_btn_1 {
 	@include st_btn;
 
 	font-weight: 700;
 	color: $color-btn-main-text;
 	background-color: $color-btn-main-start;
+	transition: 0.3s ease;
+}
+
+%red_btn_1 {
+	@include st_btn;
+
+	font-weight: 700;
+	color: $color-text-primary;
+	background-color: $color-btn-table;
 	transition: 0.3s ease;
 }
 
@@ -31,9 +40,22 @@
 	border-radius: 1.5rem;
 	text-transform: uppercase;
 }
+%btn_size_2 {
+	max-width: 30rem;
+	height: 4rem;
+	padding: 0.8rem 1.6rem;
+	line-height: 5.4rem;
+	font-size: 1.4rem;
+	border-radius: 1.5rem;
+}
 
 .btn_hero {
-	@extend %accent_btn_1;
+	@extend %yellow_btn_1;
 	@extend %btn_size_1;
 	margin-bottom: 5rem;
+}
+
+.btn_concert {
+	@extend %red_btn_1;
+	@extend %btn_size_2;
 }

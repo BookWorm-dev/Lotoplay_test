@@ -34,10 +34,13 @@ body {
 	&--hero {
 		background-image: url('../imgs/bg.webp');
 		width: 100vw;
-		height: 100vh;
+		height: auto;
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
+	}
+	&--bg {
+		background: $color_bg;
 	}
 }
 
@@ -47,4 +50,18 @@ body {
 	padding: 0 1.5rem;
 
 	margin: 0 auto;
+	&--concerts {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+}
+
+.title {
+	font-weight: 700;
+	font-size: 3rem;
+	line-height: 3.5rem;
+	color: $color-text-primary;
+	&--center {
+		text-align: center;
+	}
 }

@@ -1,1 +1,40 @@
 @use './helpers/abstracts' as *;
+@use './helpers/abstracts' as *;
+
+.concert-table {
+	display: flex;
+	flex-direction: column;
+	background: $color-bg-concert;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.concert-row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 4rem;
+	align-items: center;
+	padding: 15px 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	color: #fff;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.concert-head {
+	font-weight: bold;
+	background: $color-surface;
+}
+
+.concert-head__title {
+	background: $color-surface;
+	padding: 15px 20px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.concert-item {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: $color-text-primary;
+}

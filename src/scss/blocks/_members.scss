@@ -1,1 +1,57 @@
 @use './helpers/abstracts' as *;
+
+.members {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+
+	&-list {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		gap: 3rem;  
+	}
+
+	&-item {
+		background: $color-bg2;
+		border-radius: 1rem;
+		overflow: hidden;  
+		box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+
+		&:hover {
+			transform: scale(1.03);
+			box-shadow: 0 0 2rem rgba(255, 255, 255, 0.4);
+		}
+	}
+
+	&-img {
+		display: block;
+		height: 100%;
+		width: 100%;
+		object-position: center;
+		object-fit: cover;
+		transition:
+			transform 0.4s ease,
+			filter 0.4s ease;
+	}
+
+	&-img_in {
+		width: 35rem;
+		height: 35rem;
+		overflow: hidden;
+	}
+
+	&-item:hover .members-img {
+		transform: scale(1.05);
+		filter: brightness(1.1);
+	}
+
+	&-text {
+		color: $color-text-secondary;
+		padding: 2rem;
+		text-align: center;
+		font-weight: 500;
+	}
+}
