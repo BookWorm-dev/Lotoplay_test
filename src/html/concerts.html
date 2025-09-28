@@ -1,45 +1,68 @@
-<section class="section section--bg">
-  <div class="container container--concerts">
-    <div class="concert-table">
+<section id="concerts" class="section section--bg">
+	<div class="container container--padding_top_and_bottom">
+		<div class="concert-table">
+			<div class="concert-head__title" colspan="4">
+				<h2 class="title">Найближчі концерти</h2>
+			</div>
 
-      <div class="concert-head__title" colspan="4">
-        <h2 class="title">Найближчі концерти</h2>
-      </div>
+			<div class="concert-row concert-head">
+				<div class="concert-item">Місто / Заклад</div>
+				<div class="concert-item">К-сть місць</div>
+				<div class="concert-item">Дата і час</div>
+			</div>
 
-      <div class="concert-row concert-head">
-        <div class="concert-item">Місто / Заклад</div>
-        <div class="concert-item">К-сть місць</div>
-        <div class="concert-item">Дата і час</div>
-       </div>
+			<div class="concert-row">
+				<div class="concert-item">Київ — Docker-G Pub</div>
+				<div class="concert-item">250</div>
+				<div class="concert-item">25.10.2025, 19:00</div>
+				<div class="concert-item">
+					<button data-popup-button="popup" class="btn_concert">Замовити квиток</button>
+				</div>
+			</div>
 
-      <div class="concert-row">
-        <div class="concert-item">Київ — Docker-G Pub</div>
-        <div class="concert-item">250</div>
-        <div class="concert-item">25.10.2025, 19:00</div>
-        <div class="concert-item"><button class="btn_concert">Замовити квиток</button></div>
-      </div>
+			<div class="concert-row">
+				<div class="concert-item">Львів — !FESTrepublic</div>
+				<div class="concert-item">400</div>
+				<div class="concert-item">01.11.2025, 20:00</div>
+				<div class="concert-item">
+					<button data-popup-button="popup" class="btn_concert">Замовити квиток</button>
+				</div>
+			</div>
 
-      <div class="concert-row">
-        <div class="concert-item">Львів — !FESTrepublic</div>
-        <div class="concert-item">400</div>
-        <div class="concert-item">01.11.2025, 20:00</div>
-        <div class="concert-item"><button class="btn_concert">Замовити квиток</button></div>
-      </div>
+			<div class="concert-row">
+				<div class="concert-item">Одеса — Зелений театр</div>
+				<div class="concert-item">700</div>
+				<div class="concert-item">09.11.2025, 19:30</div>
+				<div class="concert-item">
+					<button data-popup-button="popup" class="btn_concert">Замовити квиток</button>
+				</div>
+			</div>
 
-      <div class="concert-row">
-        <div class="concert-item">Одеса — Зелений театр</div>
-        <div class="concert-item">700</div>
-        <div class="concert-item">09.11.2025, 19:30</div>
-        <div class="concert-item"><button class="btn_concert">Замовити квиток</button></div>
-      </div>
+			<div class="concert-row">
+				<div class="concert-item">Харків — ArtZavod</div>
+				<div class="concert-item">500</div>
+				<div class="concert-item">16.11.2025, 19:00</div>
+				<div class="concert-item">
+					<button data-popup-button="popup" class="btn_concert">Замовити квиток</button>
+				</div>
+			</div>
+		</div>
+		<div data-popup id="popup" class="popup">
+			<div data-popup-window class="popup__in">
+				<div data-popup-close class="popup__close"></div>
+				<div class="popup__subtitle">Просто заповніть форму заявки</div>
+				<div class="popup__descr">і ми передзвонимо вам протягом 10 хвилин</div>
+				<form id="contactForm" onsubmit="return handleFormSubmit(this)">
+					<label for="phone" class="visually-hidden">Ваше ім'я</label>
 
-      <div class="concert-row">
-        <div class="concert-item">Харків — ArtZavod</div>
-        <div class="concert-item">500</div>
-        <div class="concert-item">16.11.2025, 19:00</div>
-        <div class="concert-item"><button class="btn_concert">Замовити квиток</button></div>
-      </div>
+					<input name="name" class="popup__input" placeholder="Ваше ім'я" type="text" required />
+					<label for="phone" class="visually-hidden">Ваш телефон</label>
 
-    </div>
-  </div>
+					<input name="phone" class="popup__input" placeholder="Ваш телефон" type="tel" required pattern="^\+?\d{10,15}$" />
+
+					<button class="btn_popup" type="submit">Замовити консультацію</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </section>

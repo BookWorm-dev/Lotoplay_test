@@ -5,9 +5,9 @@
 	top: 0;
 	z-index: 99;
 	background-color: $color-bg;
-	height: 5rem;
+	height: 7rem;
 	&-logo {
-        font-size: 2rem;
+		font-size: 2rem;
 		color: $color-text-primary;
 	}
 	&-in {
@@ -34,5 +34,64 @@
 	&__link {
 		text-decoration: none;
 		color: $color-text-primary;
+	}
+}
+.menu_button {
+	display: none;
+}
+
+//Tablet 
+
+@include bp($point_4) {
+	.menu_button {
+		display: block;
+		height: 6rem;
+		width: 6rem;
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: bottom;
+		background-image: url('../imgs/menu-btn.svg');
+		border: none;
+		cursor: pointer;
+	}
+	.menu_button.active {
+		z-index: 99999;
+		background: url('../imgs/close.svg') no-repeat center / contain;
+	}
+
+	.nav__link {
+		display: flex;
+	}
+	.nav.active {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+	.nav {
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: auto;
+		visibility: hidden;
+		z-index: 998;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(25, 25, 25, 0.2);
+		backdrop-filter: blur(90px);
+		-webkit-backdrop-filter: blur(90px);
+		transition: all 0.3s ease-in-out;
+		transform: translateX(-100vw);
+		opacity: 0;
+		pointer-events: none;
+		&__list {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+		}
 	}
 }

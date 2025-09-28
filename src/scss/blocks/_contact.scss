@@ -1,1 +1,122 @@
 @use './helpers/abstracts' as *;
+.contact {
+	display: flex;
+	gap: 2rem;
+	margin-top: 3rem;
+	height: 100%;
+
+	&-form,
+	&-map {
+		flex: 1;
+	}
+	input,
+	textarea {
+		width: 100%;
+		padding: 0.8rem 1rem;
+		border: 1px solid #444;
+		border-radius: 6px;
+		background: $color-bg2;
+		color: $color-text-primary;
+		font-size: 1.5rem;
+	}
+
+	textarea {
+		min-height: 12rem;
+		resize: none;
+		margin-bottom: 2rem;
+	}
+
+	&-row {
+		display: flex;
+		flex-direction: row;
+		column-gap: 5rem;
+		margin-bottom: 1.5rem;
+		&:last-child {
+			column-gap: none;
+		}
+	}
+	&-colum {
+		display: flex;
+		flex-direction: column;
+	}
+	&-subtitle {
+		text-align: center;
+		color: $color-text-secondary;
+		font-size: 2rem;
+		line-height: 2.5;
+	}
+
+	&-label {
+		margin-bottom: 0.5rem;
+		color: $color-text-secondary;
+		font-size: 1.5rem;
+		line-height: 2;
+		&--bold {
+			font-weight: bold;
+			color: $color-text-primary;
+		}
+	}
+	&-item {
+		width: 25rem;
+	}
+	&-map {
+		min-height: 100%;
+		border: 1px solid #444;
+		padding: 2rem 2rem;
+		border-radius: 0.6rem;
+		overflow: hidden;
+	}
+}
+
+
+//Tablet
+@include bp($point_2) {
+	.contact {
+		flex-direction: column;
+		align-items: center;
+	}
+	.contact-row {
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	.contact-form {
+		width: 100%;
+	}
+	.contact-item {
+		width: 100%;
+	}
+	.contact-map {
+		width: 100%;
+		margin-top: 2rem;
+		padding: 1rem;
+		min-height: 25rem;
+	}
+}
+
+//Mobile
+@include bp($point_4) {
+	.contact {
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+	.contact-subtitle {
+		font-size: 1.6rem;
+		line-height: 2;
+	}
+	.contact-row {
+		gap: 1rem;
+	}
+	textarea {
+		min-height: 8rem;
+	}
+	.btn_red_medium {
+		width: 100%;
+	}
+	.contact-map {
+		height: 20rem;
+	}
+	.contact-form {
+		width: 100%;
+	}
+}

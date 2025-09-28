@@ -1,1 +1,83 @@
 @use './helpers/abstracts' as *;
+.footer {
+	background-color: $color-bg;
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+	&__copy {
+		margin-bottom: 2rem;
+	}
+	&__text {
+		color: $color-text-secondary;
+		font-size: 1rem;
+		line-height: 2;
+	}
+	&__contacts {
+		display: flex;
+		column-gap: 0.5rem;
+	}
+	&__link {
+		font-size: 1.5rem;
+		text-decoration: none;
+		color: $color-text-3;
+	}
+}
+
+.socials {
+	display: flex;
+	flex-direction: row;
+	column-gap: 2rem;
+	&__item {
+		color: $color-text-3;
+		text-decoration: none;
+		font-size: 1rem;
+		line-height: 2;
+	}
+}
+
+//Tablet 
+@include bp($point_2) {
+	.footer__inner {
+		flex-direction: column;
+		align-items: center;
+		row-gap: 1.5rem;
+	}
+
+	.footer__contacts {
+		justify-content: center;
+	}
+
+	.socials {
+		justify-content: center;
+		column-gap: 1.5rem;
+	}
+}
+
+//Mobile
+
+ @include bp($point_4) {
+	.footer__text {
+		font-size: 0.9rem;
+		text-align: center;
+	}
+
+	.footer__contacts {
+		flex-direction: column;
+		row-gap: 0.5rem;
+		align-items: center;
+	}
+
+	.footer__link {
+		font-size: 1.2rem;
+	}
+
+	.socials {
+		flex-direction: column;
+		row-gap: 0.5rem;
+		align-items: center;
+	}
+}

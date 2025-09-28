@@ -1,11 +1,10 @@
 @use './helpers/abstracts' as *;
-@use './helpers/abstracts' as *;
 
 .concert-table {
 	display: flex;
 	flex-direction: column;
 	background: $color-bg-concert;
-	border-radius: 10px;
+	border-radius: 1rem;
 	overflow: hidden;
 }
 
@@ -14,9 +13,9 @@
 	grid-template-columns: repeat(4, 1fr);
 	column-gap: 4rem;
 	align-items: center;
-	padding: 15px 20px;
+	padding: 1rem 2rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	color: #fff;
+	color: $color-text-primary;
 
 	&:last-child {
 		border-bottom: none;
@@ -30,11 +29,153 @@
 
 .concert-head__title {
 	background: $color-surface;
-	padding: 15px 20px;
+	padding: 1rem 2rem;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .concert-item {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	color: $color-text-primary;
+}
+
+.popup {
+	position: fixed;
+	z-index: 998;
+	top: 0;
+	left: 0;
+	width: 100dvw;
+	height: 100dvh;
+	background-color: rgba(1, 1, 1, 0.4);
+	justify-content: center;
+	align-items: center;
+	display: none;
+
+	&__in {
+		position: relative;
+		width: 100%;
+		height: 40rem;
+		max-width: 40rem;
+		background: linear-gradient(135deg, #1a1d28 0%, #2d3746 100%);
+		padding: 4rem;
+		border-radius: 2rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		box-shadow:
+			0 25px 50px -12px rgba(0, 0, 0, 0.5),
+			0 0 0 1px rgba(255, 255, 255, 0.05),
+			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(20px);
+		color: $color-text-primary;
+	}
+
+	&__close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+
+		height: 2rem;
+		width: 2rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	&__subtitle {
+		color: $color-text-primary;
+		font-size: 2.4rem;
+		line-height: 1.3;
+		font-weight: 700;
+		margin-bottom: 1rem;
+		text-align: center;
+		background: linear-gradient(135deg, #fee42b 0%, #4bcbf7 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	&__descr {
+		color: $color-text-primary;
+		font-size: 1.6rem;
+		line-height: 1.5;
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+	&__input {
+		border-radius: 5px;
+		height: 3rem;
+		margin-bottom: 2rem;
+		width: 25rem;
+	}
+}
+
+.popup.active {
+	display: flex;
+}
+
+.popup__close::after,
+.popup__close::before {
+	position: absolute;
+
+	content: '';
+	width: 2rem;
+	height: 2px;
+	background-color: #111;
+}
+
+.popup__close::after {
+	transform: rotate(45deg);
+}
+
+.popup__close::before {
+	transform: rotate(-45deg);
+}
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+// Tablet
+@include bp($point_4) {
+	.concert-row {
+		grid-template-columns: 1fr 1fr;
+		row-gap: 1rem;
+		column-gap: 2rem;
+		text-align: center;
+
+		.concert-item {
+			font-size: 1.3rem;
+		}
+
+		button {
+			grid-column: span 2;
+			width: 100%;
+		}
+	}
+
+	.concert-head {
+		display: none;
+	}
+}
+
+//Mobile
+@include bp($point_2) {
+	.concert-row {
+		grid-template-columns: 1fr;
+		row-gap: 0.5rem;
+		padding: 1.5rem;
+
+		.concert-item {
+			font-size: 1.2rem;
+		}
+
+		button {
+			width: 100%;
+			margin-top: 0.5rem;
+		}
+	}
 }
