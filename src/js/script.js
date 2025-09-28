@@ -21,11 +21,23 @@ menuLinks.forEach(link => {
 
 // Popup functions
 popupButtons.forEach(btn => {
-	btn.addEventListener('click', () => popup.classList.add('active'));
+	btn.addEventListener('click', () => {
+ 		const popupForm = popup.querySelector('form');
+		if (popupForm) {
+			popupForm.reset();
+		}
+		popup.classList.add('active');
+	});
 });
 
-popupClose.addEventListener('click', () => popup.classList.remove('active'));
-popup.addEventListener('click', () => popup.classList.remove('active'));
+popupClose.addEventListener('click', () => {
+	popup.classList.remove('active');
+});
+
+popup.addEventListener('click', () => {
+	popup.classList.remove('active');
+});
+
 popupWindow.addEventListener('click', e => e.stopPropagation());
 
 // Form handling function
@@ -45,27 +57,18 @@ function handleFormSubmit(form) {
 		return false;
 	}
 
-	// Log to console (for testing)
-	console.log('📧 Форма отправлена:', data);
-
 	// Show success message
 	alert("✅ Форма успішно відправлена! Ми зв'яжемося з вами найближчим часом.");
 
-	// Close popup if it's open
-	if (popup) {
-		popup.classList.remove('active');
-	}
-
-	// Reset form
+	// Close popup and reset form
+	popup.classList.remove('active');
 	form.reset();
 
-	// Prevent real submission
 	return false;
 }
 
 // Initialize all forms
 document.addEventListener('DOMContentLoaded', function () {
-	// Add submit handlers to all forms
 	document.querySelectorAll('form').forEach(form => {
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
